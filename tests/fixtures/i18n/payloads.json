@@ -1,0 +1,46 @@
+{
+  "_comment": "Round-257 multi-locale fixtures for digital.vasic.i18n. Used by challenges/scripts/i18n_describe_challenge.sh and challenges/runner/main.go to verify UTF-8 / non-ASCII text round-trips losslessly through Bundle.AddMessages / GetMessage, loader.LoadJSON / LoadJSONDir / LoadMap, and middleware.New / LanguageFromContext. CONST-046 alignment: no hardcoded English-only assumption.",
+  "inputs": [
+    {
+      "locale": "en",
+      "hello": "Hello, {{Name}}!",
+      "name": "Alice",
+      "expected_rendered": "Hello, Alice!",
+      "expected_min_runes": 13
+    },
+    {
+      "locale": "sr",
+      "hello": "Здраво, {{Name}}!",
+      "name": "Милица",
+      "expected_rendered": "Здраво, Милица!",
+      "expected_min_runes": 14
+    },
+    {
+      "locale": "ja",
+      "hello": "こんにちは、{{Name}}さん!",
+      "name": "アリス",
+      "expected_rendered": "こんにちは、アリスさん!",
+      "expected_min_runes": 11
+    },
+    {
+      "locale": "ar",
+      "hello": "مرحبا، {{Name}}!",
+      "name": "أليس",
+      "expected_rendered": "مرحبا، أليس!",
+      "expected_min_runes": 11
+    },
+    {
+      "locale": "zh-CN",
+      "hello": "你好, {{Name}}!",
+      "name": "爱丽丝",
+      "expected_rendered": "你好, 爱丽丝!",
+      "expected_min_runes": 8
+    }
+  ],
+  "expected_invariants": {
+    "fallback_returns_default_lang": true,
+    "missing_key_returns_key_verbatim": true,
+    "query_param_overrides_accept_language": true,
+    "template_substitution_is_rune_safe": true
+  }
+}

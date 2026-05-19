@@ -1,11 +1,62 @@
+# CONST-053 — no-versioned-build-artifacts compliance.
+
+# Build artefacts
 *.exe
 *.dll
 *.so
 *.dylib
+*.a
+*.o
 *.test
 *.out
-.idea/
-.vscode/
+/bin/
+/build/
+/dist/
+/out/
+target/
+
+# Caches
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+.cache/
+.gradle/
+.terraform/
+
+# Temp files
+*.tmp
 *.swp
+*~
 .DS_Store
 Thumbs.db
+*.orig
+*.rej
+
+# Sensitive data — .env.example placeholder permitted, real secrets never
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+id_rsa*
+id_ed25519*
+.netrc
+secrets/
+api_keys.sh
+
+# Generated reports/logs
+*.log
+coverage.out
+coverage.html
+htmlcov/
+
+# OS/IDE personal state
+.idea/
+.history/
+.vscode/
+
+# Runner scratch from challenges
+/tmp/i18n_round257_runner
